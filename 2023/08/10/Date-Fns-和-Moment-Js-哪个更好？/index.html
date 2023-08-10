@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Date-Fns 和 Moment.Js 哪个更好？ - 豆子泥的个人博客</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="我们在开发过程中，往往会遇到很多需要处理日期的地方，如...">
+  <meta name="author" content="豆子泥">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
+  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
+  
+    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
+    <meta rel="msapplication-TileColor" content="#000000">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      loading: {
+        gif: '/images/theme/loading.gif',
+        lottie: ''
+      },
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: {
+          gif: '/images/theme/loading.gif',
+          lottie: ''
+        }
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://pic.izhaoo.com/alipay.jpg',
+        wechat: 'https://pic.izhaoo.com/wechat.jpg'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://pic.izhaoo.com/weapp-code.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: ''
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="lock-screen">
+  <div class="loading" id="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">Date-Fns 和 Moment.Js 哪个更好？</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Date-Fns 和 Moment.Js 哪个更好？</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>August 10, 2023</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2616</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        
+        <p>我们在开发过程中，往往会遇到很多需要处理日期的地方，如果我们用自带的date属性去处理日期，是一个很麻烦的事情，这个时候用一个合适的时间库就可以完美的解决这个问题了，目前比较常用的日期处理库就是Momentjs和date-fns这两个库，如下图所示，我们可以看到他们的使用量</p>
+<p><img    class="lazyload" data-original="/../images/WechatIMG8.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">Momentjs下载量</span></p>
+<p><img    class="lazyload" data-original="/../images/WechatIMG9.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">date-fns下载量</span></p>
+<h2 id="Moment-js使用"><a href="#Moment-js使用" class="headerlink" title="Moment-js使用"></a>Moment-js使用</h2><p>目前Momentjs已经不再维护了，但是针对已有的api，我们仍然是可以继续使用Momentjs去处理日期，官网建议不要为新项目选择Momentjs，官方也为我们提供了一些替代方案,详见<a target="_blank" rel="noopener" href="https://momentjs.com/docs/#/-project-status/">官网</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://moment.github.io/luxon/#/">Luxon</a></li>
+<li><a target="_blank" rel="noopener" href="https://day.nodejs.cn/">Day.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://date-fns.org/">date-fns</a></li>
+<li><a target="_blank" rel="noopener" href="https://js-joda.github.io/js-joda/">js-Joda</a></li>
+</ul>
+<p>上面我们说了，虽然官方给我们提供了一些其他的解决方案，但是Momentjs仍然可以使用，下面我们就一起来使用一下Moment,然后再让Moment和date-fns对比一下</p>
+<ul>
+<li><p>安装Moment</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">npm install <span class="hljs-title class_">Moment</span><br><span class="hljs-comment">// or</span><br>yarn add <span class="hljs-title class_">Moment</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在项目中使用Moment<a target="_blank" rel="noopener" href="https://moment.nodejs.cn/docs/#/use-it/">详见</a></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> <span class="hljs-title class_">Moment</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;Moment&#x27;</span>); <span class="hljs-comment">// require</span><br><span class="hljs-title class_">Moment</span>().<span class="hljs-title function_">format</span>(); <br><span class="hljs-comment">// ES6</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Moment</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;Moment&#x27;</span>;<br><span class="hljs-title class_">Moment</span>().<span class="hljs-title function_">format</span>();<br></code></pre></td></tr></table></figure>
+
+<p>在这里我们就可以看到，当你创建 Moment.js 实例时，Moment.js 会加载所有函数。执行基本功能需要加载相当大的代码块。不可能导入特定的函数。因此，即使在加载基本日期时也会引入性能开销，因为您必须导入整个 API 链。</p>
+<p>默认情况下，webpack 打包所有 Moment.js 语言环境（在 Moment.js 2.18.1 中，这是 160 缩小的 KB）。 要去除不必要的语言环境并仅打包使用过的语言环境，请添加 moment-locales-webpack-plugin：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">MomentLocalesPlugin</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;moment-locales-webpack-plugin&#x27;</span>);<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>    <span class="hljs-attr">plugins</span>: [<br>        <span class="hljs-comment">// To strip all locales except “en”</span><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">MomentLocalesPlugin</span>(),<br><br>        <span class="hljs-comment">// Or: To strip all locales except “en”, “es-us” and “ru”</span><br>        <span class="hljs-comment">// (“en” is built into Moment and can’t be removed)</span><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">MomentLocalesPlugin</span>(&#123;<br>            <span class="hljs-attr">localesToKeep</span>: [<span class="hljs-string">&#x27;es-us&#x27;</span>, <span class="hljs-string">&#x27;ru&#x27;</span>],<br>        &#125;),<br>    ],<br>&#125;;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="date-fns使用"><a href="#date-fns使用" class="headerlink" title="date-fns使用"></a>date-fns使用</h2><ul>
+<li><p>安装date-fns</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">npm install date-fns --save<br><span class="hljs-comment">// or</span><br>yarn add date-fns<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在项目中使用date-fns<a target="_blank" rel="noopener" href="https://date-fns.org/docs/Getting-Started">详见</a></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; format, compareAsc &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;date-fns&#x27;</span><br><br><span class="hljs-title function_">format</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">2014</span>, <span class="hljs-number">1</span>, <span class="hljs-number">11</span>), <span class="hljs-string">&#x27;MM/dd/yyyy&#x27;</span>)<br><span class="hljs-comment">//=&gt; &#x27;02/11/2014&#x27;</span><br><br><span class="hljs-keyword">const</span> dates = [<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">1995</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>),<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">1987</span>, <span class="hljs-number">1</span>, <span class="hljs-number">11</span>),<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">1989</span>, <span class="hljs-number">6</span>, <span class="hljs-number">10</span>),<br>]<br>dates.<span class="hljs-title function_">sort</span>(compareAsc)<br><span class="hljs-comment">//=&gt; [</span><br><span class="hljs-comment">//   Wed Feb 11 1987 00:00:00,</span><br><span class="hljs-comment">//   Mon Jul 10 1989 00:00:00,</span><br><span class="hljs-comment">//   Sun Jul 02 1995 00:00:00</span><br><span class="hljs-comment">// ]</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Moment和Date-fns差异"><a href="#Moment和Date-fns差异" class="headerlink" title="Moment和Date-fns差异"></a>Moment和Date-fns差异</h2><table>
+<thead>
+<tr>
+<th align="left">特性差异</th>
+<th align="center">date-fns</th>
+<th align="left">moment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">国际化</td>
+<td align="center">支持</td>
+<td align="left">支持</td>
+</tr>
+<tr>
+<td align="left">TypeScript</td>
+<td align="center">支持</td>
+<td align="left">支持</td>
+</tr>
+<tr>
+<td align="left">日期处理功能</td>
+<td align="center">提供丰富的日期处理函数</td>
+<td align="left">提供丰富的日期处理函数</td>
+</tr>
+<tr>
+<td align="left">大小和性能</td>
+<td align="center">相对较小，性能良好</td>
+<td align="left">相对较大，性能略低</td>
+</tr>
+<tr>
+<td align="left">API 设计</td>
+<td align="center">函数式编程，模块化</td>
+<td align="left">面向对象</td>
+</tr>
+<tr>
+<td align="left">可变性 vs. 不可变性</td>
+<td align="center">返回不可变的新日期对象</td>
+<td align="left">返回可变的日期对象</td>
+</tr>
+<tr>
+<td align="left">文档和社区支持</td>
+<td align="center">文档相对较少，社区支持较少</td>
+<td align="left">文档丰富，社区支持广泛</td>
+</tr>
+<tr>
+<td align="left">本地化支持</td>
+<td align="center">提供基本的本地化函数，需额外配置来实现复杂本地化需求</td>
+<td align="left">内置强大的本地化支持</td>
+</tr>
+<tr>
+<td align="left">浏览器和服务器支持</td>
+<td align="center">支持在浏览器和服务器端使用</td>
+<td align="left">同样支持在浏览器和服务器端使用</td>
+</tr>
+<tr>
+<td align="left">是否持续更新</td>
+<td align="center">是</td>
+<td align="left">否</td>
+</tr>
+</tbody></table>
+<h2 id="Date-fns-合适吗？"><a href="#Date-fns-合适吗？" class="headerlink" title="Date-fns 合适吗？"></a>Date-fns 合适吗？</h2><p>Date-fns 合适吗？<br>它于 2017 年首次发布，因其简单性、不变性和性能而广受欢迎。然而，它已经很受欢迎并且正在快速增长：<br><img    class="lazyload" data-original="/../images/WechatIMG10.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">一年下载量</span></p>
+<ul>
+<li><p>既然 Moment.js 即将消失，那么Date-fns是否合适？以下是 Date-fns 成为替代 Moment.js 的理想选择的一些完美理由：</p>
+</li>
+<li><p>它是一个基于函数的 API。Date-fns 是许多小函数的集合，使用原生 Date 来操作日期对象。与 Moment.js 不同，您只导入需要的内容。只选择你需要的听起来不错。</p>
+</li>
+<li><p>它的捆绑输出非常小，至少构建输出减少了至少 40%。</p>
+</li>
+<li><p>不可变的日期很好。Date-fns 不变性功能可确保从运行的函数返回新的 Date 实例。</p>
+</li>
+<li><p>其减小的芽尺寸提高了整体性能。</p>
+</li>
+<li><p>Date-fns 支持 tree-shaking 算法，使其可以与React、Webpack等工具一起使用。</p>
+</li>
+</ul>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>不管是用Moment还是用date-fns去处理日期格式，都是一个不错的选择，不能绝对的说哪个库好用，这取悦于你的项目想要那些功能。</p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>豆子泥</li>
+    <li><strong>本文链接：</strong><a href="https://douzini.github.io/2023/08/10/Date-Fns-%E5%92%8C-Moment-Js-%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F/index.html" title="https:&#x2F;&#x2F;douzini.github.io&#x2F;2023&#x2F;08&#x2F;10&#x2F;Date-Fns-%E5%92%8C-Moment-Js-%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F&#x2F;index.html">https:&#x2F;&#x2F;douzini.github.io&#x2F;2023&#x2F;08&#x2F;10&#x2F;Date-Fns-%E5%92%8C-Moment-Js-%E5%93%AA%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%9F&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://pic.izhaoo.com/alipay.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Momentjs%E3%80%81date-fns/" rel="tag">Momentjs、date-fns</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2023/08/09/uniapp%E5%BC%80%E5%8F%91%E5%B0%8F%E7%A8%8B%E5%BA%8F/">uni-app开发小程序<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Moment-js%E4%BD%BF%E7%94%A8"><span class="toc-text">Moment-js使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#date-fns%E4%BD%BF%E7%94%A8"><span class="toc-text">date-fns使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moment%E5%92%8CDate-fns%E5%B7%AE%E5%BC%82"><span class="toc-text">Moment和Date-fns差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date-fns-%E5%90%88%E9%80%82%E5%90%97%EF%BC%9F"><span class="toc-text">Date-fns 合适吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=894519210 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="javascript:; "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#09BB07'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconwechat-fill "></i>
+      </a><a 
+        href="https://www.instagram.com/izhaoo/ "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#DA2E76'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconinstagram "></i>
+      </a><a 
+        href="https://github.com/zhaoo "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:izhaoo@163.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
