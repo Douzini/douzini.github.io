@@ -229,7 +229,7 @@
 <p>默认情况下，webpack 打包所有 Moment.js 语言环境（在 Moment.js 2.18.1 中，这是 160 缩小的 KB）。 要去除不必要的语言环境并仅打包使用过的语言环境，请添加 moment-locales-webpack-plugin：</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">MomentLocalesPlugin</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;moment-locales-webpack-plugin&#x27;</span>);<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>    <span class="hljs-attr">plugins</span>: [<br>        <span class="hljs-comment">// To strip all locales except “en”</span><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">MomentLocalesPlugin</span>(),<br><br>        <span class="hljs-comment">// Or: To strip all locales except “en”, “es-us” and “ru”</span><br>        <span class="hljs-comment">// (“en” is built into Moment and can’t be removed)</span><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">MomentLocalesPlugin</span>(&#123;<br>            <span class="hljs-attr">localesToKeep</span>: [<span class="hljs-string">&#x27;es-us&#x27;</span>, <span class="hljs-string">&#x27;ru&#x27;</span>],<br>        &#125;),<br>    ],<br>&#125;;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="date-fns使用"><a href="#date-fns使用" class="headerlink" title="date-fns使用"></a>date-fns使用</h2><ul>
+<h2 id="Date-fns使用"><a href="#Date-fns使用" class="headerlink" title="Date-fns使用"></a>Date-fns使用</h2><ul>
 <li><p>安装date-fns</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">npm install date-fns --save<br><span class="hljs-comment">// or</span><br>yarn add date-fns<br></code></pre></td></tr></table></figure>
 </li>
@@ -310,7 +310,7 @@
 <li><p>Date-fns 支持 tree-shaking 算法，使其可以与React、Webpack等工具一起使用。</p>
 </li>
 </ul>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>不管是用Moment还是用date-fns去处理日期格式，都是一个不错的选择，不能绝对的说哪个库好用，这取悦于你的项目想要那些功能。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>不管是用Moment还是用date-fns去处理日期格式，都是一个不错的选择，不能绝对的说哪个库好用，这取决于你的项目想要那些功能。</p>
 
       </section>
       <section class="extra">
@@ -353,7 +353,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Moment-js%E4%BD%BF%E7%94%A8"><span class="toc-text">Moment-js使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#date-fns%E4%BD%BF%E7%94%A8"><span class="toc-text">date-fns使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moment%E5%92%8CDate-fns%E5%B7%AE%E5%BC%82"><span class="toc-text">Moment和Date-fns差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date-fns-%E5%90%88%E9%80%82%E5%90%97%EF%BC%9F"><span class="toc-text">Date-fns 合适吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Moment-js%E4%BD%BF%E7%94%A8"><span class="toc-text">Moment-js使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date-fns%E4%BD%BF%E7%94%A8"><span class="toc-text">Date-fns使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Moment%E5%92%8CDate-fns%E5%B7%AE%E5%BC%82"><span class="toc-text">Moment和Date-fns差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Date-fns-%E5%90%88%E9%80%82%E5%90%97%EF%BC%9F"><span class="toc-text">Date-fns 合适吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol>
   </aside>
 
         
